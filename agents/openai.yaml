@@ -1,0 +1,4 @@
+interface:
+  display_name: "코드베이스 인수인계"
+  short_description: "실제 코드로 구조·흐름·변경 영향을 분석하고 통합 HTML 안내서를 만듭니다"
+  default_prompt: "$codebase-handoff로 현재 서비스의 지정 기능을 분석하고, 처음 인수인계받는 개발자가 혼자 읽을 수 있는 단일 HTML 안내서를 만들어줘."
