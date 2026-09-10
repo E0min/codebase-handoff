@@ -1,8 +1,66 @@
 # Codebase Handoff
 
-Create a source-grounded handoff for a developer who knows programming but is new to a codebase. The goal is to explain where a change starts, what it affects, and where to investigate a failure.
+**Understand where a feature starts, what a change affects, and where to investigate a failure.**
 
-The skill works with a single repository, a multi-repository service, a library, a CLI, or a batch application. It follows actual entrypoints, imports, configuration, data writes, and asynchronous boundaries. Unsupported conclusions are marked as requiring confirmation.
+An agent skill for developers inheriting an unfamiliar codebase. It guides the agent through real entrypoints, dependencies, data writes and failure paths, then produces an editable Markdown map and a single offline HTML reader.
+
+## See the output
+
+![Generated handoff with a table of contents, executive summary and system context](examples/screenshots/overview.png)
+
+This is an actual browser capture of the bundled renderer's output, not a design mockup. The example analyzes **this repository's HTML tools** at a recorded source revision. It uses Mermaid; Archify is optional and is not used in this example.
+
+**[Read the example Markdown](examples/CODEBASE_MAP.md) · [Download the example HTML](https://raw.githubusercontent.com/E0min/codebase-handoff/main/examples/CODEBASE_MAP.html) · [View its validation report](examples/validation.json)**
+
+Save the HTML and open it in your browser. Its narrative, diagrams and navigation work offline. Source-code links point to GitHub and need network access when clicked. GitHub's file view shows HTML source rather than running the reader.
+
+### Follow a request through the code
+
+![End-to-end sequence with real module names and linked source evidence](examples/screenshots/core-flow.png)
+
+The report connects the trigger, runtime entrypoint, processing steps, data writes and final result. It names the real files and functions at each boundary, then explains failure handling and change impact.
+
+<details>
+<summary>Mobile reader preview</summary>
+
+![Mobile layout with navigation and readable handoff text](examples/screenshots/390.png)
+
+Wide diagrams and tables scroll inside their own containers. The whole page should not overflow horizontally.
+
+</details>
+
+## When to use it
+
+- You are taking over a repository or a service spread across multiple repositories.
+- You need to trace a feature before changing its API, data model, integration or asynchronous processing.
+- You need a handoff another developer can read independently, including what to check during a failure.
+
+The reader is expected to know programming, but does not need prior knowledge of the service. The workflow adapts to libraries, CLIs, batch programs and web services. Repository count, language and framework are not fixed.
+
+## What you get
+
+| Deliverable | What it helps you do |
+| --- | --- |
+| `CODEBASE_MAP.html` | Read the explanation, diagrams and necessary appendices in one offline file |
+| `CODEBASE_MAP.md` | Edit the narrative and retain the Mermaid source |
+| Source references | Check important claims against actual files, symbols and revisions |
+| Failure and change-impact tables | Decide where to start debugging or modifying a feature |
+| Unknowns and learning order | Know what to ask the previous developer and what to study next |
+| Validation report and optional screenshots | Separate automated browser checks from visual review and application testing |
+
+The agent checks 15 areas: executive summary, system context, repository map, architecture, entrypoints, business flows, data model, state lifecycle, asynchronous work, integrations, infrastructure, recovery, danger zones, unknowns and learning order. Small projects can combine related sections; explicit user formatting wins.
+
+## How it works
+
+1. Establish the real repository boundaries and inspected revisions.
+2. Map responsibilities and high-level dependencies before reading implementation details.
+3. Trace the most important flows through entrypoints, data changes, external calls and asynchronous boundaries.
+4. Explain failure paths and the modules affected by a change, with source references.
+5. Generate the HTML reader and check the final artifact.
+
+**The agent investigates the code. The scripts render and validate the document.** Running `build.mjs` alone does not discover an architecture or verify the narrative.
+
+README files are discovery aids, not architectural proof. Unverified claims must be labeled as requiring confirmation. The skill distinguishes code inspection, observed execution, code-based risks and unknowns. It does not invent absent layers, treat an enum as proof of a live transition, or call a document check a production test.
 
 ## Install
 
@@ -64,6 +122,20 @@ npm test
 ```
 
 Test coverage includes Unicode paths, Markdown appendices, four Mermaid types, embedded viewers, offline assets, unsafe Markdown, malformed diagrams, broken anchors, and external request detection. Browser tests have been run on macOS with Chrome. Linux, Windows, and full task execution across different agent hosts remain unverified.
+
+## Reproduce the preview
+
+From the repository root, with `CHROME_PATH` pointing to your Chrome/Chromium executable:
+
+```sh
+npm --prefix scripts ci --ignore-scripts
+node scripts/build.mjs --input examples/CODEBASE_MAP.md --output examples/CODEBASE_MAP.html --title "Codebase Handoff · Example" --lang en
+node scripts/check.mjs --input examples/CODEBASE_MAP.html --report examples/validation.json --screenshots examples/screenshots
+```
+
+The checker captures the overview and first diagram at three viewport sizes. The additional `overview.png` captures the top of the reader at 1440×740, and `core-flow.png` captures section 6 at 1440×1100. Rendering again can change generated SVG identifiers and therefore the artifact hash. The checked-in validation report belongs to the checked-in HTML file.
+
+The preview passes the browser checks at 1440×1000, 1920×1080 and 390×844, with four Mermaid diagrams, no broken internal anchors, no external asset requests and no page-level horizontal overflow. Overview, flow and mobile screenshots were also visually inspected. This is evidence for this example, not a guarantee for every generated handoff.
 
 ## Contents
 
