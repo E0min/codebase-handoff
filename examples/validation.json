@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "sha256": "c529ea11dc99230b447e727c5e0afdb3351f6a9cd4b181ee2143b74a6b281272",
+  "visualReview": "Overview, core-flow and mobile screenshots inspected on 2026-09-10; diagram labels and reader text are readable. Wide diagrams use internal scrolling on mobile.",
+  "productRuntimeTests": "not performed",
+  "results": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "passed": true,
+      "manifest": {
+        "headings": 15,
+        "diagrams": 4,
+        "appendices": 0,
+        "viewers": 0
+      },
+      "duplicates": [],
+      "broken": [],
+      "headings": 15,
+      "diagrams": 4,
+      "invisibleDiagrams": 0,
+      "appendices": 0,
+      "viewers": 0,
+      "horizontalOverflow": false,
+      "brokenImages": 0,
+      "appendixNavigation": true,
+      "frameDiagrams": [],
+      "requests": [],
+      "errors": [],
+      "screenshot": "screenshots/1440.png"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "passed": true,
+      "manifest": {
+        "headings": 15,
+        "diagrams": 4,
+        "appendices": 0,
+        "viewers": 0
+      },
+      "duplicates": [],
+      "broken": [],
+      "headings": 15,
+      "diagrams": 4,
+      "invisibleDiagrams": 0,
+      "appendices": 0,
+      "viewers": 0,
+      "horizontalOverflow": false,
+      "brokenImages": 0,
+      "appendixNavigation": true,
+      "frameDiagrams": [],
+      "requests": [],
+      "errors": [],
+      "screenshot": "screenshots/1920.png"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "passed": true,
+      "manifest": {
+        "headings": 15,
+        "diagrams": 4,
+        "appendices": 0,
+        "viewers": 0
+      },
+      "duplicates": [],
+      "broken": [],
+      "headings": 15,
+      "diagrams": 4,
+      "invisibleDiagrams": 0,
+      "appendices": 0,
+      "viewers": 0,
+      "horizontalOverflow": false,
+      "brokenImages": 0,
+      "appendixNavigation": true,
+      "frameDiagrams": [],
+      "requests": [],
+      "errors": [],
+      "screenshot": "screenshots/390.png"
+    }
+  ],
+  "publicationNote": "Screenshot paths made relative for sharing; measured HTML and check results are unchanged.",
+  "previewScreenshots": {
+    "overview.png": "0dd0c13e6dc130e95be3e96af9fb821b631ed5b0206a7aab94941024fd4fa1f5",
+    "1440.png": "861000a34a12718f9305ec024e5b4ba4e61c885f2c23d334bae6735651b4d3f9",
+    "390-diagram.png": "e83a72799731d91b293715d0a2212e5de963eb271bdade7209a228373f64eb8f",
+    "core-flow.png": "ab38c36a026000ca1bc178e4f6c00a8a8bbf1cf51e29037523e8fa637adc52a8",
+    "1920-diagram.png": "9754a6a55e86cfe397286a040e4b87cca9f080a5b1d952b9c5b44b2325151357",
+    "1920.png": "5ccfa89f0795d8160980abf0f7cd4974ef7e430270db95fe8181bf4772e7015f",
+    "390.png": "c079b0415ff8e78f2a0ac9221f2b289c2c3ac22e02ee95798b5572ecbef596bf",
+    "1440-diagram.png": "dc1f1905460676ed54c95b1ece33437c2b3705a4504a754d9afaeff852b8a8d9"
+  }
+}
